@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Modal from "./Modal";
-import Button from "./Button"
+import Modal from "../Common/Modal";
+import Button from "../Common/Button"
 import DeleteInner from "./DeleteInner";
 
 export default function DeleteBtn() {

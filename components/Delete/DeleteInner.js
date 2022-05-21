@@ -1,12 +1,12 @@
 import { useSelector,useDispatch } from "react-redux";
-import { removeAlbum } from "../store/modules/album";
-import Button from "./Button";
+import { removeAlbum } from "../../store/modules/album";
+import Button from "../Common/Button";
 
 export default function DeleteInner() {
   const dispatch = useDispatch();
-  const selectedAlbum = useSelector(({album}) => album.selectedAlbum);
+  const selectedAlbumId = useSelector(({album}) => album.selectedAlbum.id);
   const handleClick = () => {
-    dispatch(removeAlbum(selectedAlbum));
+    dispatch(removeAlbum(selectedAlbumId));
   }
 
   return (

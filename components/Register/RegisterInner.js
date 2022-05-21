@@ -1,4 +1,4 @@
-import { addAlbum,increaseId} from "../store/modules/album";
+import { addAlbum,increaseId} from "../../store/modules/album";
 import { useDispatch,useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import Image from "next/image";

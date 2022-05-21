@@ -1,8 +1,8 @@
 import React, { useEffect, useInsertionEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useState } from 'react';
-import { setLoginedUser } from '../store/modules/user';
-import { loginValidation } from '../store/modules/user';
+import { setLoginedUser } from '../../store/modules/user';
+import { loginValidation } from '../../store/modules/user';
 
 export default function Login() {
   const dispatch = useDispatch();

@@ -1,5 +1,5 @@
 import { useSelector,useDispatch } from "react-redux"
-import { setPage } from "../store/modules/album";
+import { setPage } from "../../store/modules/album";
 
 export default function NavBar() {
   const dispatch = useDispatch();

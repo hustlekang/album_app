@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useSelector,useDispatch } from "react-redux";
-import { updateAlbum } from "../store/modules/album";
-import Button from "./Button";
+import { updateAlbum } from "../../store/modules/album";
+import Button from "../Common/Button";
 import Image from "next/image";
 
 export default function UpdateInner({setIsOpen}) {

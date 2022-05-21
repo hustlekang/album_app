@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import Modal from './Modal'
+import Modal from '../Common/Modal';
 import RegisterInner from './RegisterInner';
-import Button from './Button';
-import NeedLogin from './NeedLogin';
+import Button from '../Common/Button';
+import NeedLogin from '../Login/NeedLogin';
 import { useSelector } from 'react-redux';
 
 export default function RegisterButton() {

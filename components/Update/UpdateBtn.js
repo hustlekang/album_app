@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Button from "./Button"
-import Modal from "./Modal";
+import Button from "../Common/Button";
+import Modal from "../Common/Modal";
 import UpdateInner from "./UpdateInner";
 export default function UpdateBtn() {
   const [isOpen,setIsOpen] = useState(false);
