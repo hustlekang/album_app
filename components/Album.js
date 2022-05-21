@@ -49,7 +49,7 @@ export default function Album() {
           box-sizing: border-box;  
         }
         .card{        
-          border: 2px solid rgb(62, 66, 129);
+          border: 2px solid #67839e;
           border-radius: 5px;
           width: 400px;
           margin: 0 auto 20px;
@@ -73,11 +73,13 @@ export default function Album() {
         }
         .btn-container{
           display: flex;
+          padding: 0 7px;
         }
         h3{
           width: 100%;
           text-align: center;
           margin: 10px 0;
+          color: #67839e;
         }
     `}</style>
     </div>

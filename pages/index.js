@@ -1,17 +1,10 @@
-import Link from "next/link";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
 import NavBar from "../components/Common/NavBar";
-import Card from "../components/Card";
 import RegisterButton from "../components/Register/RegisterButton";
 import Head from "next/head";
 import Login from "../components/Login/Login";
-export default function Home() {
-  const dispatch = useDispatch();
-  const albums  = useSelector(({album})=>album.albums);
-  
-  
+import Album from "../components/Album";
 
+export default function Home() {
   return (
     <div className="main">
       <Head>
@@ -19,21 +12,19 @@ export default function Home() {
       </Head>
       <Login/>
       <RegisterButton/>
-      <Card/>
+      <Album/>
       <NavBar/>
       
       <style jsx>{`
-      .main{
-        max-width : 700px;
-        border: 1px solid;
-        border-radius: 10px;
-        margin : auto;
-        color : #789ab9;
-        padding : 0 10px;
-      
-      }
-    }
-    `}</style>
+        .main{
+          max-width : 700px;
+          border: 1px solid;
+          border-radius: 10px;
+          margin : auto;
+          color : #dbdbdb; 
+          padding : 0 10px;
+        }
+      `}</style>
     </div>
   )
 }

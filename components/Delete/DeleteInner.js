@@ -17,6 +17,7 @@ export default function DeleteInner() {
         div{
           height: 100%;
           text-align: center;
+          color: #67839e;
         }
         `}</style>
     </div>

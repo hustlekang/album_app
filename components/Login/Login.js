@@ -133,8 +133,10 @@ export default function Login() {
           }
           
           input{
-            padding: 3px;
+            padding: 4px;
             margin-right: 3px;
+            border-radius: 3px;
+            border: 1px solid #dbdbdb;
           }
           .login-after{
             display: flex;

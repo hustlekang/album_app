@@ -6,7 +6,12 @@ import NeedLogin from '../Login/NeedLogin';
 import { useSelector } from 'react-redux';
 
 export default function RegisterButton() {
-  const loginedUser  = useSelector(({user})=>user.loginedUser);
+  const loginedUser  = useSelector(({user})=>user.loginedUser) ?? {
+    id: undefined,
+    userName:undefined,
+    email:undefined,
+    pw:undefined
+  }; 
   const [isOpen,setIsOpen] = useState(false);
   return (
     <>

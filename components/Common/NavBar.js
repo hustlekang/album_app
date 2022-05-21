@@ -25,18 +25,21 @@ export default function NavBar() {
       div{
         display: flex;
         padding: 5px;
+        margin-bottom: 5px;
       }
       button{
         width: 100%;
         height: 30px;
-        background-color: #bdcfdf;
+        background-color: #67839e;
         border: 1px solid rgb(62, 66, 129);
         border-radius: 1px;
         cursor: pointer;
         border-radius: 3px;
+        color: white;
       }
       button:hover{
         background-color: white;
+        color: black;
       }
     `}</style>
   </div>

@@ -14,6 +14,7 @@ export default function Button(props) {
         font-size : 20px;
         font-weight : 600;
         letter-spacing : 5px;
+        color: #435566;
         }
         button:hover{  
         background-color : #e5e5e5;

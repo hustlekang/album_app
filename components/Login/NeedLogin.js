@@ -8,12 +8,9 @@ export default function NeedLogin() {
           position: relative;
           text-align: center;
           margin-top: 50px;
-          
           width: 100% ;
-              {/* left: 50%;
-              top: 50%;
-              transform: translate(-50%,-50%);
-              z-index: 99; */}
+          color: #67839e;
+          font-weight: 600;
         }
         `}</style>
     </div>
