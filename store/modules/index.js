@@ -1,7 +1,7 @@
 import { combineReducers } from "@reduxjs/toolkit";
 import { HYDRATE } from "next-redux-wrapper";
 import album from './album';
-
+import user from "./user";
 const reducer = (state, action) => {
   if (action.type === HYDRATE){
     return {
@@ -10,7 +10,8 @@ const reducer = (state, action) => {
     };
   }
   return combineReducers({
-    album
+    album,
+    user,
   })(state,action);
 }
 
