@@ -7,8 +7,7 @@
 ---
 
 ```bash
-npm start
-# or
+npm install
 npm run dev
 ```
 ---
