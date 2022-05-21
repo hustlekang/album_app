@@ -6,23 +6,40 @@ import { loginValidation } from '../../store/modules/user';
 
 export default function Login() {
   const dispatch = useDispatch();
-  const loginedUser  = useSelector(({user})=>user.loginedUser);
+  const loginedUser  = useSelector(({user})=>user.loginedUser) ?? {
+    id: undefined,
+    userName:undefined,
+    email:undefined,
+    pw:undefined
+  };
   const [loginInfo,setLoginInfo] = useState({email : '', pw : ''});
   const [isShow,setIsShow] = useState(false);
   const [isLogin,setIsLogin] = useState(false);
   const [isRightEmail,setIsRightEmail] = useState(true);
   const regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
+  const [warningStr,setWarningStr] = useState('');
+  const warningStrArr = [
+    '',
+    '이메일과 비밀번호를 모두 입력하세요',
+    '등록되지 않은 이메일입니다',
+    '비밀번호가 일치하지 않습니다'
+  ] 
+  // useEffect(()=>{
+  //   if (!loginedUser.id) {
+  //     setIsLogin(false)
+  //   }
+  //   else {
+  //     setIsLogin(true)
+  //   }
+  //   console.log(loginedUser)
+    
+  // },[loginedUser]);
 
   useEffect(()=>{
-    if (!loginedUser.id) {
-      setIsLogin(false)
+    if (loginInfo.email !=='' && loginInfo.pw !==''){
+      setWarningStr(warningStrArr[0])
     }
-    else {
-      setIsLogin(true)
-    }
-    console.log(loginedUser)
-    
-  },[loginedUser]);
+  },[loginInfo]);
 
   const handleChange = e => {
     if (e.target.type === "email"){
@@ -35,22 +52,28 @@ export default function Login() {
   };
 
   const handleLogin = () => {
-    const validation = loginValidation(loginInfo);
-    if (validation.result){
-      dispatch(setLoginedUser(validation.info));
+    if (loginInfo.email==='' || loginInfo.pw==''){
+      setWarningStr(warningStrArr[1]);
     }
     else{
-      //'unknownUser','pwUncorrect'
-      if (validation.reason === 'unknownUser'){
-        console.log('등록되지않은이메일')
-        setIsShow(true);
-        // 등록되지 않은 이메일입니다
+      const validation = loginValidation(loginInfo);
+      if (validation.result==='success'){
+        dispatch(setLoginedUser(validation.info));
+        setLoginInfo({email : '', pw : ''});
       }
       else{
-        // 비밀번호가 일치하지 않습니다 
-        setIsShow(true);
+        //'unknownUser','pwUncorrect'
+        if (validation.reason === 'unknownUser'){
+          setWarningStr(warningStrArr[2]);
+          setIsShow(true);
+          // 등록되지 않은 이메일입니다
+        }
+        else{
+          // 비밀번호가 일치하지 않습니다 
+          setWarningStr(warningStrArr[3]);
+          setIsShow(true);
+        }
       }
-    
     }
   }
   const handleEnter = (e) =>{
@@ -67,7 +90,7 @@ export default function Login() {
   };
   return (
     <div className='login-container'>
-      {!isLogin
+      {!loginedUser.id
         ?
           <div className='login-elems'>
             <input
@@ -84,6 +107,7 @@ export default function Login() {
             />
             <button className='btn' onClick={handleLogin}>로그인</button>
             {!isRightEmail && <div className="warning">올바른 이메일을 입력하세요</div>}
+            <div className="warning">{warningStr}</div>
           </div>     
         : 
           <div className='login-after'>
@@ -129,7 +153,11 @@ export default function Login() {
             background-color : white;
             border: 1px solid #dbdbdb;
             font-weight: 600;
+            cursor: pointer;
           }
+          .btn:hover{  
+            background-color : #e5e5e5;
+          }  
           .error{
             border: 2px solid rgb(231, 103, 103);
           }
