@@ -5,9 +5,17 @@ import { dummyUser } from "../dummyUser";
 export const UserNameById = (userId) =>{
   return dummyUser.find(user => user.id === userId).userName
 }
+
+export const loginValidation = ({email,pw}) => {
+  const userWhoWantLogin =   dummyUser.find(user=> user.email === email);
+  if (!userWhoWantLogin) return {result : 'fail', reason : 'unknownUser'}
+  if (userWhoWantLogin.pw === pw) return {result : 'success', info : userWhoWantLogin}
+  else return {result : 'fail', reason : 'pwUncorrect'}
+  
+}
 const initialState = {
   loginedUser : {
-    id: 1,
+    id: undefined,
     userName:undefined,
     email:undefined,
     pw:undefined
