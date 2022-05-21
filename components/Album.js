@@ -5,12 +5,17 @@ import { UserNameById } from "../store/modules/user";
 import DeleteBtn from "./Delete/DeleteBtn";
 import UpdateBtn from "./Update/UpdateBtn";
 import { selectAlbum } from "../store/modules/album";
-export default function Card() {
+export default function Album() {
   const dispatch = useDispatch();
   const pageNumber  = useSelector(({album}) => album.page);
   const albums = useSelector(({album}) => album.albums);
   const albumsByPage = selectAlbumByPage(albums,pageNumber);
-  const loginedUser  = useSelector(({user})=>user.loginedUser);
+  const loginedUser  = useSelector(({user})=>user.loginedUser) ?? {
+    id: undefined,
+    userName:undefined,
+    email:undefined,
+    pw:undefined
+  };
   return (
     <div className="card-container">
       {albumsByPage.map(album => {
